@@ -53,4 +53,11 @@ dependencies {
     // Navigation Component
     implementation("androidx.navigation:navigation-fragment:2.8.6")
     implementation("androidx.navigation:navigation-ui:2.8.6")
+
+    //intuit sdp & ssp
+    implementation("com.intuit.sdp:sdp-android:1.0.6")
+    implementation("com.intuit.ssp:ssp-android:1.0.6")
+
+    //gif
+    implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.17")
 }
