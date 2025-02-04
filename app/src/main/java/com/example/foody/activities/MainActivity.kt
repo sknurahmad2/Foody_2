@@ -1,12 +1,10 @@
-package com.example.foody
+package com.example.foody.activities
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
+import com.example.foody.R
 import com.example.foody.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
