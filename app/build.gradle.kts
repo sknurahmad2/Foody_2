@@ -67,4 +67,8 @@ dependencies {
 
     //Glide
     implementation("com.github.bumptech.glide:glide:4.12.0")
+
+    //ViewModel MVVM & Livedata
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0-rc01")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.0-rc01")
 }
