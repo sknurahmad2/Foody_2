@@ -1,5 +1,6 @@
 package com.example.foody.retrofit
 
+import com.example.foody.pojo.CategoryList
 import com.example.foody.pojo.MealList
 import retrofit2.Call
 import retrofit2.http.GET
@@ -12,4 +13,7 @@ interface MealApi{
 
     @GET("lookup.php?")
     fun getMealDetails(@Query("i")id:String):Call<MealList>
+
+    @GET("filter.php?")
+    fun getMealCategory(@Query("c")categoryName:String = "Seafood"):Call<CategoryList>
 }
