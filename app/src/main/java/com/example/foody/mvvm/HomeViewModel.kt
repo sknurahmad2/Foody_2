@@ -4,6 +4,8 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.foody.pojo.Category
+import com.example.foody.pojo.CategoryItemList
 import com.example.foody.pojo.CategoryList
 import com.example.foody.pojo.CategoryMeal
 import com.example.foody.pojo.Meal
@@ -16,6 +18,7 @@ import retrofit2.Response
 class HomeViewModel:ViewModel() {
     private var randomMealLiveData = MutableLiveData<Meal>()
     private var popularMealLiveData = MutableLiveData<List<CategoryMeal>>()
+    private var categoryItemsListLiveData = MutableLiveData<List<Category>>()
 
     fun getRandomMeal(){
         RetrofitInstance.api.getRandomMeal().enqueue(object : Callback<MealList> {
@@ -56,6 +59,29 @@ class HomeViewModel:ViewModel() {
 
     fun observePopularItemMealLiveData():LiveData<List<CategoryMeal>>{
         return popularMealLiveData
+    }
+
+    fun getCategoryItemsList(){
+        RetrofitInstance.api.getMealCategoryList().enqueue(object : Callback<CategoryItemList>{
+            override fun onResponse(
+                call: Call<CategoryItemList>,
+                response: Response<CategoryItemList>
+            ) {
+                if (response.body()!=null){
+                    categoryItemsListLiveData.value = response.body()!!.categories
+                }else{
+                    return
+                }
+            }
+
+            override fun onFailure(call: Call<CategoryItemList>, t: Throwable) {
+                Log.d("HomeFragment",t.toString())
+            }
+        })
+    }
+
+    fun observeCategoryItemsLiveData() : LiveData<List<Category>>{
+        return categoryItemsListLiveData
     }
 
 }
